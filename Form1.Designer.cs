@@ -43,12 +43,12 @@
             this.HexRadio = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.bitWiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AND = new System.Windows.Forms.ToolStripMenuItem();
-            this.OR = new System.Windows.Forms.ToolStripMenuItem();
-            this.NOT = new System.Windows.Forms.ToolStripMenuItem();
             this.Nand = new System.Windows.Forms.ToolStripMenuItem();
             this.Nor = new System.Windows.Forms.ToolStripMenuItem();
             this.Xor = new System.Windows.Forms.ToolStripMenuItem();
+            this.AND = new System.Windows.Forms.ToolStripMenuItem();
+            this.OR = new System.Windows.Forms.ToolStripMenuItem();
+            this.NOT = new System.Windows.Forms.ToolStripMenuItem();
             this.AButton = new System.Windows.Forms.Button();
             this.BButton = new System.Windows.Forms.Button();
             this.CButton = new System.Windows.Forms.Button();
@@ -254,37 +254,16 @@
             // bitWiseToolStripMenuItem
             // 
             this.bitWiseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AND,
-            this.OR,
-            this.NOT,
             this.Nand,
             this.Nor,
-            this.Xor});
+            this.Xor,
+            this.AND,
+            this.OR,
+            this.NOT});
             this.bitWiseToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.bitWiseToolStripMenuItem.Name = "bitWiseToolStripMenuItem";
             this.bitWiseToolStripMenuItem.Size = new System.Drawing.Size(73, 34);
             this.bitWiseToolStripMenuItem.Text = "BitWise";
-            // 
-            // AND
-            // 
-            this.AND.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.AND.Name = "AND";
-            this.AND.Size = new System.Drawing.Size(135, 26);
-            this.AND.Text = "AND";
-            // 
-            // OR
-            // 
-            this.OR.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.OR.Name = "OR";
-            this.OR.Size = new System.Drawing.Size(135, 26);
-            this.OR.Text = "OR";
-            // 
-            // NOT
-            // 
-            this.NOT.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.NOT.Name = "NOT";
-            this.NOT.Size = new System.Drawing.Size(135, 26);
-            this.NOT.Text = "NOT";
             // 
             // Nand
             // 
@@ -306,6 +285,28 @@
             this.Xor.Name = "Xor";
             this.Xor.Size = new System.Drawing.Size(135, 26);
             this.Xor.Text = "XOR";
+            // 
+            // AND
+            // 
+            this.AND.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AND.Name = "AND";
+            this.AND.Size = new System.Drawing.Size(135, 26);
+            this.AND.Text = "AND";
+            // 
+            // OR
+            // 
+            this.OR.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.OR.Name = "OR";
+            this.OR.Size = new System.Drawing.Size(135, 26);
+            this.OR.Text = "OR";
+            // 
+            // NOT
+            // 
+            this.NOT.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.NOT.Name = "NOT";
+            this.NOT.Size = new System.Drawing.Size(135, 26);
+            this.NOT.Text = "NOT";
+            this.NOT.Click += new System.EventHandler(this.Logical_Operator_Clicked);
             // 
             // AButton
             // 
@@ -396,6 +397,7 @@
             this.PlusMinusButton.Text = "+/-";
             this.PlusMinusButton.UseVisualStyleBackColor = false;
             this.PlusMinusButton.EnabledChanged += new System.EventHandler(this.EnableChange);
+            this.PlusMinusButton.Click += new System.EventHandler(this.Sign_clicked);
             // 
             // OneButton
             // 
@@ -648,6 +650,7 @@
             // CurlyOpen
             // 
             this.CurlyOpen.BackColor = System.Drawing.Color.DarkCyan;
+            this.CurlyOpen.Enabled = false;
             this.CurlyOpen.Location = new System.Drawing.Point(125, 409);
             this.CurlyOpen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CurlyOpen.Name = "CurlyOpen";
@@ -660,6 +663,7 @@
             // CurlyClose
             // 
             this.CurlyClose.BackColor = System.Drawing.Color.DarkCyan;
+            this.CurlyClose.Enabled = false;
             this.CurlyClose.Location = new System.Drawing.Point(240, 409);
             this.CurlyClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CurlyClose.Name = "CurlyClose";

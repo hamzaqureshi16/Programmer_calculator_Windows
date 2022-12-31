@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace ProgCalc1
 {
@@ -8,7 +9,7 @@ namespace ProgCalc1
         private bool replace = false;
         private int PrevRes;
         private String PrevOp = "";
-        private bool criticalSection = false;
+         
 
 
 
@@ -65,7 +66,7 @@ namespace ProgCalc1
             
         }
 
-        private bool countOperators()
+        private bool CountOperators()
         {
             int count = 0;
             foreach (char h in SecondaryEqBox.Text)
@@ -86,7 +87,24 @@ namespace ProgCalc1
         private void EqualButton_Click(object sender, EventArgs e)
         {
             OperatorClicked("=");
-            MainEqBox.Text = PrevRes.ToString();
+            if (Decradio.Checked)
+            {
+                MainEqBox.Text = PrevRes.ToString();
+            }
+            else if (Octradio.Checked)
+            {
+                MainEqBox.Text = DecToOctal(PrevRes.ToString());
+            }
+            else if (HexRadio.Checked)
+            {
+                MainEqBox.Text = DecToHexa(PrevRes.ToString());
+            }
+            else if (Binradio.Checked)
+            {
+                
+
+            }
+            
         }
         private void OperatorClicked(string op)
         {
@@ -94,12 +112,29 @@ namespace ProgCalc1
             //adds the current text of maineqbox and the op to the secondary eqbox
             if(SecondaryEqBox.Text == "")
             {
-                PrevRes = int.Parse(MainEqBox.Text);
+                PrevRes = int.Parse(DecLabel.Text);
             }
 
             if (SecondaryEqBox.Text.Contains("="))
             {
-                SecondaryEqBox.Text = PrevRes.ToString() + op;
+                if (Decradio.Checked)
+                {
+                    SecondaryEqBox.Text = PrevRes.ToString() + op;
+                }
+                else if (Octradio.Checked)
+                {
+                    SecondaryEqBox.Text = DecToOctal(PrevRes.ToString()) + op;                
+                }
+                else if (HexRadio.Checked)
+                {
+                    SecondaryEqBox.Text = DecToHexa(PrevRes.ToString()) + op;
+                }
+                else if (Binradio.Checked)
+                {
+                    SecondaryEqBox.Text = DecToBinary(PrevRes.ToString()) + op;
+                    
+                }
+                    
                 PrevOp = "";
             }
             else
@@ -116,22 +151,23 @@ namespace ProgCalc1
             }
             else
             {
+
                 switch (PrevOp)
                 {
                     case "+":
-                        PrevRes += int.Parse(MainEqBox.Text);
+                        PrevRes += int.Parse(DecLabel.Text);
                         break;
                     case "-":
-                        PrevRes += int.Parse(MainEqBox.Text);
+                        PrevRes += int.Parse(DecLabel.Text);
                         break;
                     case "*":
-                        PrevRes *= int.Parse(MainEqBox.Text);
+                        PrevRes *= int.Parse(DecLabel.Text);
                         break;
                     case "/":
-                        PrevRes /= int.Parse(MainEqBox.Text);
+                        PrevRes /= int.Parse(DecLabel.Text);
                         break;
                     case "%":
-                        PrevRes %= int.Parse(MainEqBox.Text);
+                        PrevRes %= int.Parse(DecLabel.Text);
                         break;
                 }
 
@@ -139,8 +175,26 @@ namespace ProgCalc1
                 {
                     PrevOp = op;
                 }
-              
-                MainEqBox.Text = PrevRes.ToString();
+
+                if (Decradio.Checked)
+                {
+                    MainEqBox.Text = PrevRes.ToString();
+                }
+                else if (Octradio.Checked)
+                {
+                    MainEqBox.Text = DecToOctal(PrevRes.ToString());
+                }
+                else if (HexRadio.Checked)
+                {
+                    MainEqBox.Text = DecToHexa(PrevRes.ToString());
+                }
+                else if (Binradio.Checked)
+                {
+                    MainEqBox.Text = DecToBinary(PrevRes.ToString());
+
+                }
+
+                
             }
             //this flag lets the number stay in the MainEqBox and doesn't clear it. The next time any digit is added to the MainEqBox it'll first 
             //clear the box and then do its thing
@@ -183,14 +237,63 @@ namespace ProgCalc1
             MainEqBox.Text = "0";
             SecondaryEqBox.Text = "";
         }
+
+        private string TwosCompliment(string binary)
+        {
+          
+            binary = binary.PadLeft(8, '0');
+            StringBuilder str = new StringBuilder(binary);
+                int n = str.Length;
+
+                // Traverse the string to get
+                // first '1' from the last of string
+                int i;
+                for (i = n - 1; i >= 0; i--)
+                {
+                    if (str[i] == '1')
+                    {
+                        break;
+                    }
+                }
+
+                // If there exists no '1' concat 1
+                // at the starting of string
+                if (i == -1)
+                {
+                    return "1" + str;
+                }
+
+                // Continue traversal after the
+                // position of first '1'
+                for (int k = i - 1; k >= 0; k--)
+                {
+                    // Just flip the values
+                    if (str[k] == '1')
+                    {
+                        str.Remove(k, k + 1 - k).Insert(k, "0");
+                    }
+                    else
+                    {
+                        str.Remove(k, k + 1 - k).Insert(k, "1");
+                    }
+                }
+
+                // return the modified string
+                return str.ToString();
+            }
         
 
-        
-        private void DecToBinary()
+        private string DecToBinary(string toConvert)
         {
-            if (MainEqBox.Text != "" && MainEqBox.Text != "0")
+            bool isNegative = default;
+            if (toConvert != "" && toConvert != "0")
             {
-                int num = Convert.ToInt32(MainEqBox.Text);
+                int num = Convert.ToInt32(toConvert);
+                if (num < 0)
+                {
+                    num *= -1;
+                    isNegative = true;
+                }
                 string binary = "";
                 while (num > 0)
                 {
@@ -198,19 +301,26 @@ namespace ProgCalc1
                     binary = rem.ToString() + binary;
                     num = num / 2;
                 }
-                BinaryLabel.Text = binary;
+                if (isNegative)
+                {
+                    
+                    binary = TwosCompliment( binary);
+
+                    return binary + "(two's compliment)";
+                }
+                return binary;
             }
             else
             {
-                BinaryLabel.Text = "0";
+                return "0";
             }
         }
 
-        private void DecToOctal()
+        private string DecToOctal(string toConvert)
         {
-            if (MainEqBox.Text != "" && MainEqBox.Text != "0")
+            if (toConvert != "" && toConvert != "0" && !toConvert.Contains('-'))
             {
-                int num = Convert.ToInt32(MainEqBox.Text);
+                int num = Convert.ToInt32(toConvert);
                 string octal = "";
                 while (num > 0)
                 {
@@ -218,40 +328,59 @@ namespace ProgCalc1
                     octal = rem.ToString() + octal;
                     num = num / 8;
                 }
-                Octlabel.Text = octal;
+                return octal;
+            }
+            else if (toConvert.Contains('-'))
+            {
+                if(toConvert.Length < 8)
+                {
+                    toConvert = toConvert.PadLeft(8, '0');
+                }
             }
             else
             {
-                Octlabel.Text = "0";
+                return "0";
             }
             
         }
 
         //for converting decimal values to hexadecimal
-        private void DecToHexa()
+        private string DecToHexa(string toConvert)
         {
-            if (MainEqBox.Text != "" && MainEqBox.Text != "0")
+            if (toConvert != "" && toConvert != "0"  )
             {
-                string deciaml = MainEqBox.Text;
+                string deciaml;
+                if (!toConvert.Contains('-'))
+                {
+                     deciaml = toConvert;
+                }
+                else
+                {
+                    deciaml = (Math.Pow(2, 32) + int.Parse(toConvert)).ToString();
+                }
+            
                 string hex = "";
                 while (deciaml != "0")
                 {
-                    int temp = int.Parse(deciaml) % 16;
+                    long temp = long.Parse(deciaml) % 16;
 
 
                     hex += temp < 10 ? (char)(48 + temp) : (char)(55 + temp);
-                    deciaml = (int.Parse(deciaml) / 16).ToString();
+                    deciaml = (long.Parse(deciaml) / 16).ToString();
                 }
 
                 //reverse the string hex
                 char[] arr = hex.ToCharArray();
                 Array.Reverse(arr);
                 hex = new string(arr);
-                HexLabel.Text = hex;
+                return hex;
             }
+            
+
+
             else
             {
-                HexLabel.Text = "0";
+                return "0";
             }
         }
 
@@ -259,11 +388,12 @@ namespace ProgCalc1
 
 
 
-        private void BinaryToDec()
+
+        private String BinaryToDec(string toConvert)
         {
-            if (MainEqBox.Text != "" && MainEqBox.Text != "0")
+            if (toConvert != "" && toConvert != "0")
             {
-                int num = Convert.ToInt32(MainEqBox.Text);
+                int num = Convert.ToInt32(toConvert);
                 int dec = 0;
                 int base1 = 1;
                 int temp = num;
@@ -274,11 +404,11 @@ namespace ProgCalc1
                     dec += lastdigit * base1;
                     base1 = base1 * 2;
                 }
-                DecLabel.Text = dec.ToString();
+                return dec.ToString();
             }
             else
             {
-                DecLabel.Text = "0";
+                return  "0";
             }
            
 
@@ -287,11 +417,11 @@ namespace ProgCalc1
         }
 
 
-        private void OctalToDec()
+        private string OctalToDec(string toConvert)
         {
-            if (MainEqBox.Text != "" && MainEqBox.Text != "0")
+            if (toConvert != "" && toConvert != "0")
             {
-                int num = Convert.ToInt32(MainEqBox.Text);
+                int num = Convert.ToInt32(toConvert);
                 int dec = 0;
                 int base1 = 1;
                 int temp = num;
@@ -302,20 +432,20 @@ namespace ProgCalc1
                     dec += lastdigit * base1;
                     base1 = base1 * 8;
                 }
-                DecLabel.Text = dec.ToString();
+                return  dec.ToString();
             }
             else
             {
-                DecLabel.Text = "0";
+                 return "0";
             }
         }
 
 
-        private void HexToDec()
+        private string HexToDec(string toConvert)
         {
-            if (MainEqBox.Text != "" && MainEqBox.Text != "0")
+            if (toConvert != "" && toConvert != "0")
             {
-                string hex = MainEqBox.Text;
+                string hex = toConvert;
                 int dec = 0;
                 int base1 = 1;
                 for (int i = hex.Length - 1; i >= 0; i--)
@@ -331,11 +461,11 @@ namespace ProgCalc1
                         base1 = base1 * 16;
                     }
                 }
-                DecLabel.Text = dec.ToString();
+                return dec.ToString();
             }
             else
             {
-                DecLabel.Text = "0";
+                return "0";
             }
         }
 
@@ -348,60 +478,33 @@ namespace ProgCalc1
         {
             if (Decradio.Checked)
             {
-                DecToHexa();
-                DecToOctal();
-                DecToBinary();
+                HexLabel.Text = DecToHexa(MainEqBox.Text);
+                Octlabel.Text = DecToOctal(MainEqBox.Text);
+                BinaryLabel.Text = DecToBinary(MainEqBox.Text);
                 DecLabel.Text = MainEqBox.Text;
             }
             else if (Binradio.Checked)
             {
-                BinaryToDec();
+                DecLabel.Text = BinaryToDec(MainEqBox.Text);
+                HexLabel.Text = DecToHexa(DecLabel.Text);
+                Octlabel.Text = DecToOctal(DecLabel.Text);
                 BinaryLabel.Text = MainEqBox.Text;
-
-                //criticalsection code
-                if (!criticalSection)
-                {
-                    criticalSection = true;
-                    string temp = MainEqBox.Text;
-                    MainEqBox.Text = DecLabel.Text;
-                    DecToHexa();
-                    DecToOctal();
-
-                    MainEqBox.Text = temp;
-                    criticalSection = false;
-                }
 
             }
             else if (HexRadio.Checked)
             {
-                HexToDec();
+                DecLabel.Text = HexToDec(MainEqBox.Text);
+                Octlabel.Text = DecToOctal(DecLabel.Text);
+                BinaryLabel.Text = DecToBinary(DecLabel.Text);
                 HexLabel.Text = MainEqBox.Text;
-                if (!criticalSection)
-                {
-                    criticalSection = true;
-                    string temp = MainEqBox.Text;
-                    MainEqBox.Text = DecLabel.Text;
-                    DecToBinary();
-                    DecToOctal();
-                    MainEqBox.Text = temp;
-                    criticalSection = false;
-                    
-                }
+
             }
             else if (Octradio.Checked)
             {
-                OctalToDec();
+                DecLabel.Text = OctalToDec(MainEqBox.Text);
+                HexLabel.Text = DecToHexa(DecLabel.Text);
+                BinaryLabel.Text = DecToBinary(DecLabel.Text);
                 Octlabel.Text = MainEqBox.Text;
-                if (!criticalSection)
-                {
-                    criticalSection = true;
-                    string temp = MainEqBox.Text;
-                    MainEqBox.Text = DecLabel.Text;
-                    DecToHexa();
-                    DecToBinary();
-                    MainEqBox.Text = temp;
-                    criticalSection = false;
-                }
             }
         }
 
@@ -525,6 +628,21 @@ namespace ProgCalc1
         {
             Button button = (Button)sender;
             AddtoMainEQ(button.Text);
+        }
+
+        private void Logical_Operator_Clicked(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            
+            
+        }
+
+        private void Sign_clicked(object sender, EventArgs e)
+        {
+            if (Decradio.Checked)
+            {
+                MainEqBox.Text = (-1 * int.Parse(MainEqBox.Text)).ToString();
+            }
         }
     }
 }
