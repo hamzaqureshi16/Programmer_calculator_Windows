@@ -102,7 +102,8 @@
             this.MainEqBox.Location = new System.Drawing.Point(-1, 40);
             this.MainEqBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MainEqBox.Name = "MainEqBox";
-            this.MainEqBox.Size = new System.Drawing.Size(597, 118);
+            this.MainEqBox.Padding = new System.Windows.Forms.Padding(10);
+            this.MainEqBox.Size = new System.Drawing.Size(596, 118);
             this.MainEqBox.TabIndex = 2;
             this.MainEqBox.Text = "0";
             this.MainEqBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -128,7 +129,7 @@
             this.panel1.Controls.Add(this.Decradio);
             this.panel1.Controls.Add(this.HexRadio);
             this.panel1.Location = new System.Drawing.Point(-1, 155);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(598, 149);
             this.panel1.TabIndex = 4;
@@ -140,7 +141,7 @@
             this.LabelPanel.Controls.Add(this.DecLabel);
             this.LabelPanel.Controls.Add(this.HexLabel);
             this.LabelPanel.Location = new System.Drawing.Point(126, 8);
-            this.LabelPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LabelPanel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.LabelPanel.Name = "LabelPanel";
             this.LabelPanel.Size = new System.Drawing.Size(440, 141);
             this.LabelPanel.TabIndex = 4;
@@ -148,7 +149,8 @@
             // BinaryLabel
             // 
             this.BinaryLabel.BackColor = System.Drawing.Color.Gray;
-            this.BinaryLabel.Location = new System.Drawing.Point(3, 111);
+            this.BinaryLabel.Location = new System.Drawing.Point(2, 111);
+            this.BinaryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.BinaryLabel.Name = "BinaryLabel";
             this.BinaryLabel.Size = new System.Drawing.Size(414, 23);
             this.BinaryLabel.TabIndex = 3;
@@ -157,7 +159,8 @@
             // Octlabel
             // 
             this.Octlabel.BackColor = System.Drawing.Color.Gray;
-            this.Octlabel.Location = new System.Drawing.Point(3, 73);
+            this.Octlabel.Location = new System.Drawing.Point(2, 73);
+            this.Octlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Octlabel.Name = "Octlabel";
             this.Octlabel.Size = new System.Drawing.Size(414, 23);
             this.Octlabel.TabIndex = 2;
@@ -166,7 +169,8 @@
             // DecLabel
             // 
             this.DecLabel.BackColor = System.Drawing.Color.Gray;
-            this.DecLabel.Location = new System.Drawing.Point(3, 40);
+            this.DecLabel.Location = new System.Drawing.Point(2, 40);
+            this.DecLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DecLabel.Name = "DecLabel";
             this.DecLabel.Size = new System.Drawing.Size(414, 23);
             this.DecLabel.TabIndex = 1;
@@ -175,7 +179,8 @@
             // HexLabel
             // 
             this.HexLabel.BackColor = System.Drawing.Color.Gray;
-            this.HexLabel.Location = new System.Drawing.Point(3, 4);
+            this.HexLabel.Location = new System.Drawing.Point(2, 4);
+            this.HexLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.HexLabel.Name = "HexLabel";
             this.HexLabel.Size = new System.Drawing.Size(414, 25);
             this.HexLabel.TabIndex = 0;
@@ -185,8 +190,8 @@
             // 
             this.Binradio.AutoSize = true;
             this.Binradio.BackColor = System.Drawing.Color.Gray;
-            this.Binradio.Location = new System.Drawing.Point(11, 116);
-            this.Binradio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Binradio.Location = new System.Drawing.Point(10, 116);
+            this.Binradio.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Binradio.Name = "Binradio";
             this.Binradio.Size = new System.Drawing.Size(51, 24);
             this.Binradio.TabIndex = 3;
@@ -199,8 +204,8 @@
             // 
             this.Octradio.AutoSize = true;
             this.Octradio.BackColor = System.Drawing.Color.Gray;
-            this.Octradio.Location = new System.Drawing.Point(11, 79);
-            this.Octradio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Octradio.Location = new System.Drawing.Point(10, 79);
+            this.Octradio.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Octradio.Name = "Octradio";
             this.Octradio.Size = new System.Drawing.Size(53, 24);
             this.Octradio.TabIndex = 2;
@@ -213,8 +218,8 @@
             // 
             this.Decradio.AutoSize = true;
             this.Decradio.BackColor = System.Drawing.Color.Gray;
-            this.Decradio.Location = new System.Drawing.Point(11, 45);
-            this.Decradio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Decradio.Location = new System.Drawing.Point(10, 45);
+            this.Decradio.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Decradio.Name = "Decradio";
             this.Decradio.Size = new System.Drawing.Size(56, 24);
             this.Decradio.TabIndex = 1;
@@ -227,14 +232,15 @@
             // 
             this.HexRadio.AutoSize = true;
             this.HexRadio.BackColor = System.Drawing.Color.Gray;
-            this.HexRadio.Location = new System.Drawing.Point(11, 12);
-            this.HexRadio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.HexRadio.Location = new System.Drawing.Point(10, 12);
+            this.HexRadio.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.HexRadio.Name = "HexRadio";
             this.HexRadio.Size = new System.Drawing.Size(56, 24);
             this.HexRadio.TabIndex = 0;
             this.HexRadio.TabStop = true;
             this.HexRadio.Text = "Hex";
             this.HexRadio.UseVisualStyleBackColor = false;
+            this.HexRadio.CheckedChanged += new System.EventHandler(this.HexMode);
             // 
             // menuStrip1
             // 
@@ -247,7 +253,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(-1, 300);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(597, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(598, 40);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -271,6 +277,7 @@
             this.Nand.Name = "Nand";
             this.Nand.Size = new System.Drawing.Size(135, 26);
             this.Nand.Text = "NAND";
+            this.Nand.Click += new System.EventHandler(this.Logical_Operator_Clicked);
             // 
             // Nor
             // 
@@ -278,6 +285,7 @@
             this.Nor.Name = "Nor";
             this.Nor.Size = new System.Drawing.Size(135, 26);
             this.Nor.Text = "NOR";
+            this.Nor.Click += new System.EventHandler(this.Logical_Operator_Clicked);
             // 
             // Xor
             // 
@@ -285,6 +293,7 @@
             this.Xor.Name = "Xor";
             this.Xor.Size = new System.Drawing.Size(135, 26);
             this.Xor.Text = "XOR";
+            this.Xor.Click += new System.EventHandler(this.Logical_Operator_Clicked);
             // 
             // AND
             // 
@@ -292,6 +301,7 @@
             this.AND.Name = "AND";
             this.AND.Size = new System.Drawing.Size(135, 26);
             this.AND.Text = "AND";
+            this.AND.Click += new System.EventHandler(this.Logical_Operator_Clicked);
             // 
             // OR
             // 
@@ -299,6 +309,7 @@
             this.OR.Name = "OR";
             this.OR.Size = new System.Drawing.Size(135, 26);
             this.OR.Text = "OR";
+            this.OR.Click += new System.EventHandler(this.Logical_Operator_Clicked);
             // 
             // NOT
             // 
@@ -312,9 +323,9 @@
             // 
             this.AButton.BackColor = System.Drawing.Color.DarkCyan;
             this.AButton.Location = new System.Drawing.Point(9, 344);
-            this.AButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.AButton.Name = "AButton";
-            this.AButton.Size = new System.Drawing.Size(109, 59);
+            this.AButton.Size = new System.Drawing.Size(110, 59);
             this.AButton.TabIndex = 6;
             this.AButton.Text = "A";
             this.AButton.UseVisualStyleBackColor = false;
@@ -325,9 +336,9 @@
             // 
             this.BButton.BackColor = System.Drawing.Color.DarkCyan;
             this.BButton.Location = new System.Drawing.Point(9, 409);
-            this.BButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.BButton.Name = "BButton";
-            this.BButton.Size = new System.Drawing.Size(109, 57);
+            this.BButton.Size = new System.Drawing.Size(110, 57);
             this.BButton.TabIndex = 7;
             this.BButton.Text = "B";
             this.BButton.UseVisualStyleBackColor = false;
@@ -338,9 +349,9 @@
             // 
             this.CButton.BackColor = System.Drawing.Color.DarkCyan;
             this.CButton.Location = new System.Drawing.Point(9, 475);
-            this.CButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.CButton.Name = "CButton";
-            this.CButton.Size = new System.Drawing.Size(109, 57);
+            this.CButton.Size = new System.Drawing.Size(110, 57);
             this.CButton.TabIndex = 8;
             this.CButton.Text = "C";
             this.CButton.UseVisualStyleBackColor = false;
@@ -351,9 +362,9 @@
             // 
             this.DButton.BackColor = System.Drawing.Color.DarkCyan;
             this.DButton.Location = new System.Drawing.Point(9, 540);
-            this.DButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.DButton.Name = "DButton";
-            this.DButton.Size = new System.Drawing.Size(109, 57);
+            this.DButton.Size = new System.Drawing.Size(110, 57);
             this.DButton.TabIndex = 9;
             this.DButton.Text = "D";
             this.DButton.UseVisualStyleBackColor = false;
@@ -364,9 +375,9 @@
             // 
             this.EButton.BackColor = System.Drawing.Color.DarkCyan;
             this.EButton.Location = new System.Drawing.Point(9, 605);
-            this.EButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.EButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.EButton.Name = "EButton";
-            this.EButton.Size = new System.Drawing.Size(109, 57);
+            this.EButton.Size = new System.Drawing.Size(110, 57);
             this.EButton.TabIndex = 10;
             this.EButton.Text = "E";
             this.EButton.UseVisualStyleBackColor = false;
@@ -377,9 +388,9 @@
             // 
             this.FButton.BackColor = System.Drawing.Color.DarkCyan;
             this.FButton.Location = new System.Drawing.Point(9, 669);
-            this.FButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.FButton.Name = "FButton";
-            this.FButton.Size = new System.Drawing.Size(109, 57);
+            this.FButton.Size = new System.Drawing.Size(110, 57);
             this.FButton.TabIndex = 11;
             this.FButton.Text = "F";
             this.FButton.UseVisualStyleBackColor = false;
@@ -389,10 +400,10 @@
             // PlusMinusButton
             // 
             this.PlusMinusButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.PlusMinusButton.Location = new System.Drawing.Point(125, 669);
-            this.PlusMinusButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PlusMinusButton.Location = new System.Drawing.Point(126, 669);
+            this.PlusMinusButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.PlusMinusButton.Name = "PlusMinusButton";
-            this.PlusMinusButton.Size = new System.Drawing.Size(109, 57);
+            this.PlusMinusButton.Size = new System.Drawing.Size(110, 57);
             this.PlusMinusButton.TabIndex = 12;
             this.PlusMinusButton.Text = "+/-";
             this.PlusMinusButton.UseVisualStyleBackColor = false;
@@ -402,10 +413,10 @@
             // OneButton
             // 
             this.OneButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.OneButton.Location = new System.Drawing.Point(125, 604);
-            this.OneButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.OneButton.Location = new System.Drawing.Point(126, 604);
+            this.OneButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.OneButton.Name = "OneButton";
-            this.OneButton.Size = new System.Drawing.Size(109, 57);
+            this.OneButton.Size = new System.Drawing.Size(110, 57);
             this.OneButton.TabIndex = 13;
             this.OneButton.Text = "1";
             this.OneButton.UseVisualStyleBackColor = false;
@@ -415,10 +426,10 @@
             // FourButton
             // 
             this.FourButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.FourButton.Location = new System.Drawing.Point(125, 540);
-            this.FourButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FourButton.Location = new System.Drawing.Point(126, 540);
+            this.FourButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.FourButton.Name = "FourButton";
-            this.FourButton.Size = new System.Drawing.Size(109, 57);
+            this.FourButton.Size = new System.Drawing.Size(110, 57);
             this.FourButton.TabIndex = 14;
             this.FourButton.Text = "4";
             this.FourButton.UseVisualStyleBackColor = false;
@@ -428,10 +439,10 @@
             // SevenButton
             // 
             this.SevenButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.SevenButton.Location = new System.Drawing.Point(125, 475);
-            this.SevenButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SevenButton.Location = new System.Drawing.Point(126, 475);
+            this.SevenButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.SevenButton.Name = "SevenButton";
-            this.SevenButton.Size = new System.Drawing.Size(109, 57);
+            this.SevenButton.Size = new System.Drawing.Size(110, 57);
             this.SevenButton.TabIndex = 15;
             this.SevenButton.Text = "7";
             this.SevenButton.UseVisualStyleBackColor = false;
@@ -442,9 +453,9 @@
             // 
             this.EightButton.BackColor = System.Drawing.Color.DarkCyan;
             this.EightButton.Location = new System.Drawing.Point(240, 475);
-            this.EightButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.EightButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.EightButton.Name = "EightButton";
-            this.EightButton.Size = new System.Drawing.Size(109, 57);
+            this.EightButton.Size = new System.Drawing.Size(110, 57);
             this.EightButton.TabIndex = 16;
             this.EightButton.Text = "8";
             this.EightButton.UseVisualStyleBackColor = false;
@@ -455,9 +466,9 @@
             // 
             this.FiveButton.BackColor = System.Drawing.Color.DarkCyan;
             this.FiveButton.Location = new System.Drawing.Point(240, 540);
-            this.FiveButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FiveButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.FiveButton.Name = "FiveButton";
-            this.FiveButton.Size = new System.Drawing.Size(109, 57);
+            this.FiveButton.Size = new System.Drawing.Size(110, 57);
             this.FiveButton.TabIndex = 17;
             this.FiveButton.Text = "5";
             this.FiveButton.UseVisualStyleBackColor = false;
@@ -468,9 +479,9 @@
             // 
             this.TwoButton.BackColor = System.Drawing.Color.DarkCyan;
             this.TwoButton.Location = new System.Drawing.Point(240, 605);
-            this.TwoButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TwoButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.TwoButton.Name = "TwoButton";
-            this.TwoButton.Size = new System.Drawing.Size(109, 57);
+            this.TwoButton.Size = new System.Drawing.Size(110, 57);
             this.TwoButton.TabIndex = 18;
             this.TwoButton.Text = "2";
             this.TwoButton.UseVisualStyleBackColor = false;
@@ -480,10 +491,10 @@
             // NineButton
             // 
             this.NineButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.NineButton.Location = new System.Drawing.Point(355, 475);
-            this.NineButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.NineButton.Location = new System.Drawing.Point(354, 475);
+            this.NineButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.NineButton.Name = "NineButton";
-            this.NineButton.Size = new System.Drawing.Size(109, 57);
+            this.NineButton.Size = new System.Drawing.Size(110, 57);
             this.NineButton.TabIndex = 19;
             this.NineButton.Text = "9";
             this.NineButton.UseVisualStyleBackColor = false;
@@ -493,10 +504,10 @@
             // SixButton
             // 
             this.SixButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.SixButton.Location = new System.Drawing.Point(355, 540);
-            this.SixButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SixButton.Location = new System.Drawing.Point(354, 540);
+            this.SixButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.SixButton.Name = "SixButton";
-            this.SixButton.Size = new System.Drawing.Size(109, 57);
+            this.SixButton.Size = new System.Drawing.Size(110, 57);
             this.SixButton.TabIndex = 20;
             this.SixButton.Text = "6";
             this.SixButton.UseVisualStyleBackColor = false;
@@ -506,10 +517,10 @@
             // ThreeButton
             // 
             this.ThreeButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.ThreeButton.Location = new System.Drawing.Point(355, 605);
-            this.ThreeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ThreeButton.Location = new System.Drawing.Point(354, 605);
+            this.ThreeButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.ThreeButton.Name = "ThreeButton";
-            this.ThreeButton.Size = new System.Drawing.Size(109, 57);
+            this.ThreeButton.Size = new System.Drawing.Size(110, 57);
             this.ThreeButton.TabIndex = 21;
             this.ThreeButton.Text = "3";
             this.ThreeButton.UseVisualStyleBackColor = false;
@@ -520,9 +531,9 @@
             // 
             this.ZeroButton.BackColor = System.Drawing.Color.DarkCyan;
             this.ZeroButton.Location = new System.Drawing.Point(240, 671);
-            this.ZeroButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ZeroButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.ZeroButton.Name = "ZeroButton";
-            this.ZeroButton.Size = new System.Drawing.Size(109, 57);
+            this.ZeroButton.Size = new System.Drawing.Size(110, 57);
             this.ZeroButton.TabIndex = 22;
             this.ZeroButton.Text = "0";
             this.ZeroButton.UseVisualStyleBackColor = false;
@@ -533,10 +544,10 @@
             // 
             this.DotButton.BackColor = System.Drawing.Color.Gray;
             this.DotButton.Enabled = false;
-            this.DotButton.Location = new System.Drawing.Point(355, 671);
-            this.DotButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DotButton.Location = new System.Drawing.Point(354, 671);
+            this.DotButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.DotButton.Name = "DotButton";
-            this.DotButton.Size = new System.Drawing.Size(109, 57);
+            this.DotButton.Size = new System.Drawing.Size(110, 57);
             this.DotButton.TabIndex = 23;
             this.DotButton.Text = ".";
             this.DotButton.UseVisualStyleBackColor = false;
@@ -546,9 +557,9 @@
             // 
             this.EqualButton.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.EqualButton.Location = new System.Drawing.Point(471, 669);
-            this.EqualButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.EqualButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.EqualButton.Name = "EqualButton";
-            this.EqualButton.Size = new System.Drawing.Size(109, 57);
+            this.EqualButton.Size = new System.Drawing.Size(110, 57);
             this.EqualButton.TabIndex = 24;
             this.EqualButton.Text = "=";
             this.EqualButton.UseVisualStyleBackColor = false;
@@ -559,9 +570,9 @@
             // 
             this.PlusButton.BackColor = System.Drawing.Color.DarkCyan;
             this.PlusButton.Location = new System.Drawing.Point(471, 604);
-            this.PlusButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PlusButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.PlusButton.Name = "PlusButton";
-            this.PlusButton.Size = new System.Drawing.Size(109, 57);
+            this.PlusButton.Size = new System.Drawing.Size(110, 57);
             this.PlusButton.TabIndex = 25;
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = false;
@@ -572,9 +583,9 @@
             // 
             this.MinusButton.BackColor = System.Drawing.Color.DarkCyan;
             this.MinusButton.Location = new System.Drawing.Point(471, 540);
-            this.MinusButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinusButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.MinusButton.Name = "MinusButton";
-            this.MinusButton.Size = new System.Drawing.Size(109, 57);
+            this.MinusButton.Size = new System.Drawing.Size(110, 57);
             this.MinusButton.TabIndex = 26;
             this.MinusButton.Text = "-";
             this.MinusButton.UseVisualStyleBackColor = false;
@@ -585,9 +596,9 @@
             // 
             this.MultiplyButton.BackColor = System.Drawing.Color.DarkCyan;
             this.MultiplyButton.Location = new System.Drawing.Point(471, 475);
-            this.MultiplyButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MultiplyButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.MultiplyButton.Name = "MultiplyButton";
-            this.MultiplyButton.Size = new System.Drawing.Size(109, 57);
+            this.MultiplyButton.Size = new System.Drawing.Size(110, 57);
             this.MultiplyButton.TabIndex = 27;
             this.MultiplyButton.Text = "x";
             this.MultiplyButton.UseVisualStyleBackColor = false;
@@ -598,9 +609,9 @@
             // 
             this.DivideButton.BackColor = System.Drawing.Color.DarkCyan;
             this.DivideButton.Location = new System.Drawing.Point(471, 409);
-            this.DivideButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DivideButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.DivideButton.Name = "DivideButton";
-            this.DivideButton.Size = new System.Drawing.Size(109, 57);
+            this.DivideButton.Size = new System.Drawing.Size(110, 57);
             this.DivideButton.TabIndex = 28;
             this.DivideButton.Text = "/";
             this.DivideButton.UseVisualStyleBackColor = false;
@@ -610,10 +621,10 @@
             // ModuloButton
             // 
             this.ModuloButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.ModuloButton.Location = new System.Drawing.Point(355, 409);
-            this.ModuloButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ModuloButton.Location = new System.Drawing.Point(354, 409);
+            this.ModuloButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.ModuloButton.Name = "ModuloButton";
-            this.ModuloButton.Size = new System.Drawing.Size(109, 57);
+            this.ModuloButton.Size = new System.Drawing.Size(110, 57);
             this.ModuloButton.TabIndex = 29;
             this.ModuloButton.Text = "%";
             this.ModuloButton.UseVisualStyleBackColor = false;
@@ -625,9 +636,9 @@
             this.DeleteButton.BackColor = System.Drawing.Color.DarkCyan;
             this.DeleteButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DeleteButton.Location = new System.Drawing.Point(471, 345);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(109, 57);
+            this.DeleteButton.Size = new System.Drawing.Size(110, 57);
             this.DeleteButton.TabIndex = 30;
             this.DeleteButton.Text = "<x";
             this.DeleteButton.UseVisualStyleBackColor = false;
@@ -637,10 +648,10 @@
             // ResetButton
             // 
             this.ResetButton.BackColor = System.Drawing.Color.DarkCyan;
-            this.ResetButton.Location = new System.Drawing.Point(355, 345);
-            this.ResetButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ResetButton.Location = new System.Drawing.Point(354, 345);
+            this.ResetButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(109, 57);
+            this.ResetButton.Size = new System.Drawing.Size(110, 57);
             this.ResetButton.TabIndex = 31;
             this.ResetButton.Text = "C";
             this.ResetButton.UseVisualStyleBackColor = false;
@@ -651,10 +662,10 @@
             // 
             this.CurlyOpen.BackColor = System.Drawing.Color.DarkCyan;
             this.CurlyOpen.Enabled = false;
-            this.CurlyOpen.Location = new System.Drawing.Point(125, 409);
-            this.CurlyOpen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CurlyOpen.Location = new System.Drawing.Point(126, 409);
+            this.CurlyOpen.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.CurlyOpen.Name = "CurlyOpen";
-            this.CurlyOpen.Size = new System.Drawing.Size(109, 57);
+            this.CurlyOpen.Size = new System.Drawing.Size(110, 57);
             this.CurlyOpen.TabIndex = 32;
             this.CurlyOpen.Text = "(";
             this.CurlyOpen.UseVisualStyleBackColor = false;
@@ -665,9 +676,9 @@
             this.CurlyClose.BackColor = System.Drawing.Color.DarkCyan;
             this.CurlyClose.Enabled = false;
             this.CurlyClose.Location = new System.Drawing.Point(240, 409);
-            this.CurlyClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CurlyClose.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.CurlyClose.Name = "CurlyClose";
-            this.CurlyClose.Size = new System.Drawing.Size(109, 57);
+            this.CurlyClose.Size = new System.Drawing.Size(110, 57);
             this.CurlyClose.TabIndex = 33;
             this.CurlyClose.Text = ")";
             this.CurlyClose.UseVisualStyleBackColor = false;
@@ -678,7 +689,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(859, 740);
+            this.ClientSize = new System.Drawing.Size(858, 740);
             this.Controls.Add(this.CurlyClose);
             this.Controls.Add(this.CurlyOpen);
             this.Controls.Add(this.ResetButton);

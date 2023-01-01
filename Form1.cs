@@ -9,7 +9,8 @@ namespace ProgCalc1
         private bool replace = false;
         private int PrevRes;
         private String PrevOp = "";
-         
+
+        private int padding = 50;
 
 
 
@@ -26,6 +27,8 @@ namespace ProgCalc1
             HexLabel.Text = "0";
             BinaryLabel.Text = "0";
             Octlabel.Text = "0";
+
+           
         }
 
         void AddtoMainEQ(string letter)
@@ -87,6 +90,7 @@ namespace ProgCalc1
         private void EqualButton_Click(object sender, EventArgs e)
         {
             OperatorClicked("=");
+            
             if (Decradio.Checked)
             {
                 MainEqBox.Text = PrevRes.ToString();
@@ -101,46 +105,83 @@ namespace ProgCalc1
             }
             else if (Binradio.Checked)
             {
-                
 
+                MainEqBox.Text = DecToBinary(PrevRes.ToString());
             }
             
         }
+
+        //make a method to add labels to memory box
+        
+
         private void OperatorClicked(string op)
         {
-
+            
             //adds the current text of maineqbox and the op to the secondary eqbox
-            if(SecondaryEqBox.Text == "")
+            if (SecondaryEqBox.Text == "")
             {
                 PrevRes = int.Parse(DecLabel.Text);
             }
 
-            if (SecondaryEqBox.Text.Contains("="))
-            {
+            
+                if (SecondaryEqBox.Text.Contains("="))
+                {
+                //create a label inside memory box
+                Label label = new Label();
+                label.Text = SecondaryEqBox.Text + PrevRes.ToString();
+                label.AutoSize = true;
+                label.Location = new Point(0, padding);
+                label.Font = new Font("Microsoft Sans Serif", 12);
+                //add top and bottom padding to the 
+                
+                label.ForeColor = Color.White;
+                label.BackColor = Color.Transparent;
+                label.Margin = new Padding(0, 0, 0, 0);
+                label.Padding = new Padding(0, 0, 0, 0);
+                label.Size = new Size(0, 0);
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                label.Anchor = AnchorStyles.None;
+                label.MaximumSize = new Size(0, 0);
+                label.MinimumSize = new Size(0, 0);
+                label.Name = "label" + label.GetHashCode();
+                MemoryBox.Controls.Add(label);
+
+
+                padding += 50;
+
+
+                //MemoryBox.Controls.Add(new Label() { Text = SecondaryEqBox.Text });
+
+
                 if (Decradio.Checked)
-                {
-                    SecondaryEqBox.Text = PrevRes.ToString() + op;
+                    {
+                        SecondaryEqBox.Text = PrevRes.ToString() + op;
+                    }
+                    else if (Octradio.Checked)
+                    {
+                        SecondaryEqBox.Text = DecToOctal(PrevRes.ToString()) + op;
+                    }
+                    else if (HexRadio.Checked)
+                    {
+                        SecondaryEqBox.Text = DecToHexa(PrevRes.ToString()) + op;
+                    }
+                    else if (Binradio.Checked)
+                    {
+                        SecondaryEqBox.Text = DecToBinary(PrevRes.ToString()) + op;
+
+                    }
+                
+               
+                        
+
+                    PrevOp = "";
                 }
-                else if (Octradio.Checked)
+                
+                else
                 {
-                    SecondaryEqBox.Text = DecToOctal(PrevRes.ToString()) + op;                
+                    SecondaryEqBox.Text += MainEqBox.Text + op;
                 }
-                else if (HexRadio.Checked)
-                {
-                    SecondaryEqBox.Text = DecToHexa(PrevRes.ToString()) + op;
-                }
-                else if (Binradio.Checked)
-                {
-                    SecondaryEqBox.Text = DecToBinary(PrevRes.ToString()) + op;
-                    
-                }
-                    
-                PrevOp = "";
-            }
-            else
-            {
-                SecondaryEqBox.Text += MainEqBox.Text + op;
-            }
+            
 
                 
             
@@ -169,12 +210,32 @@ namespace ProgCalc1
                     case "%":
                         PrevRes %= int.Parse(DecLabel.Text);
                         break;
+                    case "AND":
+                        PrevRes = PrevRes & int.Parse(DecLabel.Text);
+                        break;
+                    case "OR":
+                        PrevRes = PrevRes | int.Parse(DecLabel.Text);
+                        break;
+                    case "NOT":
+                        PrevRes = ~PrevRes;
+                        SecondaryEqBox.Text = PrevRes.ToString();
+                        break;
+                    case "NAND":
+                        PrevRes = ~(PrevRes & int.Parse(DecLabel.Text));
+                        break;
+                    case "NOR":
+                        PrevRes = ~(PrevRes | int.Parse(DecLabel.Text));
+                        break;
+                    case "XOR":
+                        PrevRes = PrevRes ^ int.Parse(DecLabel.Text);
+                        break;
                 }
 
                 if (op != "=")
                 {
                     PrevOp = op;
                 }
+                
 
                 if (Decradio.Checked)
                 {
@@ -191,7 +252,7 @@ namespace ProgCalc1
                 else if (Binradio.Checked)
                 {
                     MainEqBox.Text = DecToBinary(PrevRes.ToString());
-
+                   
                 }
 
                 
@@ -306,7 +367,7 @@ namespace ProgCalc1
                     
                     binary = TwosCompliment( binary);
 
-                    return binary + "(two's compliment)";
+                    return binary;
                 }
                 return binary;
             }
@@ -318,9 +379,16 @@ namespace ProgCalc1
 
         private string DecToOctal(string toConvert)
         {
-            if (toConvert != "" && toConvert != "0" && !toConvert.Contains('-'))
+            if (toConvert != "" && toConvert != "0"  )
             {
+
+                
                 int num = Convert.ToInt32(toConvert);
+
+                if (num <0)
+                {
+                    num *= -1;
+                }
                 string octal = "";
                 while (num > 0)
                 {
@@ -329,13 +397,6 @@ namespace ProgCalc1
                     num = num / 8;
                 }
                 return octal;
-            }
-            else if (toConvert.Contains('-'))
-            {
-                if(toConvert.Length < 8)
-                {
-                    toConvert = toConvert.PadLeft(8, '0');
-                }
             }
             else
             {
@@ -512,6 +573,7 @@ namespace ProgCalc1
         {
             if (Decradio.Checked)
             {
+                this.PlusMinusButton.Enabled = true;
                 this.AButton.Enabled = false;
                 this.BButton.Enabled = false;
                 this.CButton.Enabled = false;
@@ -521,6 +583,7 @@ namespace ProgCalc1
             }
             else
             {
+                this.PlusMinusButton.Enabled = false;
                 this.AButton.Enabled = true;
                 this.BButton.Enabled = true;
                 this.CButton.Enabled = true;
@@ -569,6 +632,27 @@ namespace ProgCalc1
                 this.DButton.Enabled = true;
                 this.EButton.Enabled = true;
                 this.FButton.Enabled = true;
+            }
+        }
+        private void HexMode(object sender, EventArgs e)
+        {
+            if (HexRadio.Checked)
+            {
+                this.AButton.Enabled = true;
+                this.BButton.Enabled = true;
+                this.CButton.Enabled = true;
+                this.DButton.Enabled = true;
+                this.EButton.Enabled = true;
+                this.FButton.Enabled = true;
+            }
+            else
+            {
+                this.AButton.Enabled = false;
+                this.BButton.Enabled = false;
+                this.CButton.Enabled = false;
+                this.DButton.Enabled = false;
+                this.EButton.Enabled = false;
+                this.FButton.Enabled = false;
             }
         }
 
@@ -632,8 +716,8 @@ namespace ProgCalc1
 
         private void Logical_Operator_Clicked(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            
+            ToolStripMenuItem button = (ToolStripMenuItem)sender;
+            OperatorClicked(button.Text);  
             
         }
 
@@ -643,6 +727,7 @@ namespace ProgCalc1
             {
                 MainEqBox.Text = (-1 * int.Parse(MainEqBox.Text)).ToString();
             }
+            
         }
     }
 }
