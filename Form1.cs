@@ -69,23 +69,7 @@ namespace ProgCalc1
             
         }
 
-        private bool CountOperators()
-        {
-            int count = 0;
-            foreach (char h in SecondaryEqBox.Text)
-            {
-                if (h == '+' || h == '-' || h == '*' || h == '/')
-                {
-                    count++;
-                    if(count > 1)
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
+       
 
         private void EqualButton_Click(object sender, EventArgs e)
         {
@@ -199,7 +183,7 @@ namespace ProgCalc1
                         PrevRes += int.Parse(DecLabel.Text);
                         break;
                     case "-":
-                        PrevRes += int.Parse(DecLabel.Text);
+                        PrevRes -= int.Parse(DecLabel.Text);
                         break;
                     case "*":
                         PrevRes *= int.Parse(DecLabel.Text);
@@ -297,6 +281,7 @@ namespace ProgCalc1
         {
             MainEqBox.Text = "0";
             SecondaryEqBox.Text = "";
+            MemoryBox.Controls.Clear();
         }
 
         private string TwosCompliment(string binary)
@@ -700,6 +685,7 @@ namespace ProgCalc1
             SecondaryEqBox.Text = "";
             PrevRes = 0;
             PrevOp = "";
+            MemoryBox.Controls.Clear();
         }
 
         private void HexChar_Clicked(object sender, EventArgs e)
